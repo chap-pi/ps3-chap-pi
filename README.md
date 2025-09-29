@@ -1,7 +1,7 @@
 # Problem Set 3: Git & Python Fundamentals
 
 ## Student Information
-Name: Axel
+Name: Axel Chapignac
 Date: 29/09/2025
 
 ## Assignment Overview
