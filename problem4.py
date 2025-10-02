@@ -6,7 +6,6 @@ Process text files and perform various analyses.
 def create_sample_file(filename="sample.txt"):
     """
     Create a sample text file for testing.
-
     Args:
         filename (str): Name of the file to create
     """
@@ -14,25 +13,20 @@ def create_sample_file(filename="sample.txt"):
 It is widely used in web development, data science, and automation.
 Python's simple syntax makes it great for beginners.
 Many companies use Python for their projects."""
-
     with open(filename, 'w') as f:
         f.write(content)
     print(f"Created {filename}")
 
 
 def count_words(filename):
-    """
-    Count total words in the file.
-
-    Args:
-        filename (str): Name of the file to analyze
-
-    Returns:
-        int: Total number of words
-    """
-    # TODO: Open file and count words
-    # Hint: Use split() to separate words
-    pass
+    try:
+        with open(filename, "r") as f:
+            content = f.read()
+            words = content.split()
+            return len(words)
+    except FileNotFoundError:
+        print(f"Error: file '{filename}' not found.")
+        return 0
 
 
 def count_lines(filename):

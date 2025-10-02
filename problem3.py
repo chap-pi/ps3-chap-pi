@@ -4,78 +4,43 @@ Analyze a list of numbers provided by the user.
 """
 
 def get_numbers_from_user():
-    """
-    Get numbers from user until they type 'done'.
-    Return a list of numbers.
-
-    Returns:
-        list: List of numbers entered by user
-    """
     numbers = []
-
     while True:
-        # TODO: Get input from user
-        # TODO: Check if user typed 'done'
-        # TODO: Try to convert to float and add to list
-        # TODO: Handle invalid input gracefully
-        pass
-
+        entry=input("Enter a number or 'Done': ")
+        if entry=="Done":
+            break
+        try:
+            entry=float(entry)
+            numbers.append(entry)
+        except ValueError:
+            print("Enter a valid number")
     return numbers
 
 
 def analyze_numbers(numbers):
-    """
-    Analyze the list and return a dictionary with:
-    - count: number of elements
-    - sum: sum of all numbers
-    - average: average value
-    - minimum: smallest number
-    - maximum: largest number
-    - even_count: count of even numbers
-    - odd_count: count of odd numbers
-
-    Args:
-        numbers (list): List of numbers to analyze
-
-    Returns:
-        dict: Dictionary with analysis results, or None if list is empty
-    """
     if not numbers:
         return None
-
     analysis = {}
-
-    # TODO: Calculate count
-    # TODO: Calculate sum
-    # TODO: Calculate average
-    # TODO: Find minimum
-    # TODO: Find maximum
-    # TODO: Count even numbers (hint: use modulo operator)
-    # TODO: Count odd numbers
-
+    analysis["count"]=len(numbers)
+    analysis["sum"]=sum(numbers)
+    analysis["average"]=sum(numbers)/len(numbers)
+    analysis["minimum"]=min(numbers)
+    analysis["maximum"]=max(numbers)
+    analysis["even_count"]=sum(1 for n in numbers if n%2==0)
+    analysis["odd_count"]=sum(1 for n in numbers if n%2!=0)
     return analysis
 
 
 def display_analysis(analysis):
-    """
-    Display the analysis in a formatted way.
 
-    Args:
-        analysis (dict): Dictionary containing analysis results
-    """
     if not analysis:
         return
-
     print("\nAnalysis Results:")
     print("-" * 20)
+    for key in analysis:
+        print(key,":",analysis[key])
+    return
 
-    # TODO: Display all analysis results in a nice format
-    # Example:
-    # Count: 5
-    # Sum: 25
-    # Average: 5.00
-    # etc.
-    pass
 
 
 def main():
